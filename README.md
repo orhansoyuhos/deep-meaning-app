@@ -1,10 +1,16 @@
 # DeepMeaning App
 
 A desktop GUI that estimates **local scene meaning maps** for
-natural images using the DeepMeaning model (CoCa vision-language transformer
-+ linear ensemble) from Hayes & Henderson (2025).
+natural images using the DeepMeaning model (CoCa vision-language transformer + linear ensemble) from Hayes & Henderson (2025).
 
-## Acknowledgements & citation
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9157883a-c095-473a-bded-c4abf4840485" width="32%"/>
+  <img src="https://github.com/user-attachments/assets/b8a33691-94a6-4453-8429-229f3c311b84" width="32%"/>
+  <img src="https://github.com/user-attachments/assets/63a34534-121c-4923-b242-51da4355978d" width="32%"/>
+</p>
+
+
+## Acknowledgements & citations
 
 The underlying DeepMeaning model — the CoCa-based feature extraction, the
 patch grid, the leave-one-scene-out linear ensembles for indoor and outdoor
@@ -121,20 +127,3 @@ plt.imshow(m, alpha=0.6, cmap="inferno")
 plt.colorbar(label="meaning")
 plt.show()
 ```
-
-## Notes & limitations
-
-- **Same-size input**. All images in a single run must share dimensions
-  (the linear model is tied to a fixed patch grid). For mixed-size sets,
-  pad images to a common size or process them in separate runs.
-- **Indoor vs. outdoor**. Hayes & Henderson trained separate ensembles
-  for indoor and outdoor scenes.
-- **CoCa weights**. The first invocation downloads
-  `coca_ViT-L-14` / `mscoco_finetuned_laion2b_s13b_b90k` via OpenCLIP.
-  Allow disk space for the cache (default `~/.cache/clip`).
-
-## License
-
-The DeepMeaning model code distributed by Hayes & Henderson on OSF carries
-their original license — please check the source repository
-(https://osf.io/hcnfx) before redistribution.
